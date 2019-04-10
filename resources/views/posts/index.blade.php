@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron" style="background-color:gold">
+      <div class="jumbotron" style="background-color:yellow">
         <div class="container">
           <h1 class="display-3">Hello, welcom on texter!</h1>
           <p>Serwis pozwalający na tworzenie postów</p>
