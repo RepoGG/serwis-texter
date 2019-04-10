@@ -15,4 +15,12 @@ class PostsController extends Controller
     	$posts = Post::latest()->get();
     	return view('posts.index')->with('posts', $posts);
     }
+
+    /**
+    *Metoda pokazująca jeden post
+    **/
+    public function show($id){
+    	$post = Post::find($id);
+    	return view('posts.show')->with('posts', $post);
+    }
 }
