@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
-
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -13,7 +13,8 @@ class PostsController extends Controller
 	**/
     public function index(){
     	$posts = Post::latest()->get();
-    	return view('posts.index')->with('posts', $posts);
+        $users = Auth::user();
+    	return view('posts.index', compact('posts', 'users'));
     }
 
     /**
@@ -21,6 +22,7 @@ class PostsController extends Controller
     **/
     public function show($id){
     	$posts = Post::find($id);
-    	return view('posts.show')->with('posts', $posts);
+        $users = Auth::user();
+    	return view('posts.show', compact('posts', 'users'));
     }
 }
