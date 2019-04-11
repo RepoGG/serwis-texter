@@ -10,14 +10,17 @@
         </div>
       </div>
 
+
+    
       <div class="container">
         <!-- Example row of columns -->
       
 
         <div class="row">
           <div class="col-md-10">
-            <p>ed3ef3ef3</p>
-            
+            <p>{{ $posts->title }}</p>
+            <p>{{ $posts->description }}</p>
+            <p>{{ $posts->author }}</p>
           </div>
 
           
@@ -26,6 +29,8 @@
         <hr>
      
       </div> <!-- /container -->
+
+     
 
     </main>
 

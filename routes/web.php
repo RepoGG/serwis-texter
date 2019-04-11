@@ -11,15 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('master');
-});
+
 
 Route::get('/', 'PostsController@index');
-Route::get('/{id}', 'PostsController@show');
+
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/create', 'PostsController@show');
+
+
+Route::get('/{id}', 'PostsController@show');

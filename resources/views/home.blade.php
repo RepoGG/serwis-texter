@@ -14,7 +14,16 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    
+                         
+
+        
+
+        <hr>
+     
+
+
+
                 </div>
             </div>
         </div>

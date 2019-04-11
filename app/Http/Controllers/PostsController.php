@@ -20,7 +20,7 @@ class PostsController extends Controller
     *Metoda pokazująca jeden post
     **/
     public function show($id){
-    	$post = Post::find($id);
-    	return view('posts.show')->with('posts', $post);
+    	$posts = Post::find($id);
+    	return view('posts.show')->with('posts', $posts);
     }
 }
