@@ -31,7 +31,8 @@ class PostsController extends Controller
     * Tworzenie postu
     **/
     public function create(){
-        return view('posts.create');
+        $users = Auth::user();
+        return view('posts.create')->with('users', $users);
     }
 
     /**

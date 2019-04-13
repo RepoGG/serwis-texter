@@ -11,6 +11,7 @@
 					@endforeach
 				</div>
 				@endif
+                {{ $users }}
                     {!! Form::open(['url'=>'/', 'class'=>'form-horizontal'])!!}
                         @csrf
 
@@ -37,9 +38,11 @@
                             	{!! Form::label('author', 'Autor postu:') !!}
                             </div>
                             <div class="col-md-6">
-                                {!! Form::text('author', null, ['class'=>'form-control']) !!}
+                                {!!Form::checkbox('author','{{ $users->name }}')!!}
                             </div>
                         </div>
+
+                        
 
                          <div class="form-group row">
                             <div class="col-md-6" align="right">
