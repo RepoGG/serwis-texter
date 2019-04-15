@@ -12,7 +12,7 @@
 				</div>
 				@endif
                
-                    {!! Form::open(['method'=>'PATCH', 'class'=>'form-horizontal', 'action'=>['PostsController@update', $post->id]])!!}
+                    {!! Form::model($post, ['method'=>'PATCH', 'class'=>'form-horizontal', 'action'=>['PostsController@update', $post->id]])!!}
                         @csrf
 
                         <div class="form-group row">

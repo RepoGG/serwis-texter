@@ -23,7 +23,7 @@
             <p>{{ $posts->author }}</p>
           </div>
 
-          @if (Auth::check())
+          @if (isset($users->name) === $posts->name)
           <p><a class="btn btn-secondary" href="/posts/{{ $posts->id }}/edit" role="button">Edytuj &raquo;</a></p>
           @endif
           
