@@ -25,8 +25,8 @@ class CreatePostRequest extends FormRequest
     {
         return [
             'title'=>'required',
-            'description'=>'required',
-            'author'=>'required'
+            'description'=>'required'
+            
         ];
     }
 }

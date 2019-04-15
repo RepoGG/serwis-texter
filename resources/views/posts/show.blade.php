@@ -23,6 +23,9 @@
             <p>{{ $posts->author }}</p>
           </div>
 
+          @if (Auth::check())
+          <p><a class="btn btn-secondary" href="/posts/{{ $posts->id }}/edit" role="button">Edytuj &raquo;</a></p>
+          @endif
           
         </div>
 

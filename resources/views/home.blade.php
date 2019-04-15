@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboar {{$user}}</div>
+                <div class="card-header">Dashboar </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,16 +17,17 @@
                     <div class="container">
         <!-- Example row of columns -->
        @foreach($posts as $post)
+        
 
-            @if( $post->author  ===  $user )
+            @if( $post->author  ===  $users )
 
             <div class="row">
               <div class="col-md-10">
                 
                 <h2>{{ $post->title }}</h2>
                 <p>{{ $post->description }}</p>
-                <p>Autor: {{ $user }}</p>
-                <p><a class="btn btn-secondary" href="{{ url('/', $post->id) }}" role="button">Edytuj &raquo;</a></p>
+                <p>Autor: {{ $users }}</p>
+                <p><a class="btn btn-secondary" href="/posts/{{ $post->id }}/edit" role="button">Edytuj &raquo;</a></p>
                 
               </div>
 
@@ -35,6 +36,7 @@
 
             <hr>
         @endif
+      
       @endforeach
       </div> <!-- /container -->
                          

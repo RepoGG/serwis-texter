@@ -42,4 +42,21 @@ class PostsController extends Controller
         Post::create($request->all());
         return redirect('/');
     }
+
+    /**
+    *Formularz edycji postów
+    **/
+    public function edit($id){
+        $post = Post::findOrFail($id);
+        return view('posts.edit')->with('post', $post);
+    }
+
+    /**
+    *Aktualizacja postu
+    **/
+    public function update($id, CreatePostRequest $request){
+        $post = Post::findOrFail($id);
+        $post->update($request->all());
+        return redirect('posts');
+    }
 }

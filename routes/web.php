@@ -21,8 +21,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+/**
 Route::post('/', 'PostsController@store');
 Route::get('/create', 'PostsController@create');
 Route::get('/{id}', 'PostsController@show');
-
+Route::get('/{id}/edit', 'PostsController@edit');
+**/
+Route::resource('/posts', 'PostsController');

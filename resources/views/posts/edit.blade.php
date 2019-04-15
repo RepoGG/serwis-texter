@@ -11,8 +11,8 @@
 					@endforeach
 				</div>
 				@endif
-               {{ $users->name }}
-                    {!! Form::open(['url'=>'/posts', 'class'=>'form-horizontal'])!!}
+               
+                    {!! Form::open(['method'=>'PATCH', 'class'=>'form-horizontal', 'action'=>['PostsController@update', $post->id]])!!}
                         @csrf
 
                         <div class="form-group row">

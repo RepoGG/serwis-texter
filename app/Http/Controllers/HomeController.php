@@ -26,8 +26,8 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $posts = Post::latest()->get();
-        $user = $request->session()->get('name');
-        return view('home', compact('posts', 'user'));
+        $users = Auth::user()->name;
+        return view('home', compact('posts', 'users'));
         //return view('home')->with('posts', $posts);
     }
 }
