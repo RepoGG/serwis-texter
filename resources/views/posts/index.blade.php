@@ -20,6 +20,7 @@
             <h2>{{ $post->title }}</h2>
             <p>{{ $post->description }}</p>
             <p>Autor: {{ $post->author }} </p>
+            <p>Data utworzenia: {{ $post->created_at }}
             <p><a class="btn btn-secondary" href="/posts/{{ $post->id }}" role="button">Czytaj &raquo;</a></p>
           </div>
 
