@@ -21,4 +21,36 @@
 		
 	</tbody>
 </table>
+
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+               integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+               crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		fetch_post_data();
+
+		function fetch_post_data(query = '')
+		{
+			$.ajax({
+				url:"{{ route('text_search.action') }}",
+				method:'GET',
+				data:{query:query},
+				dataType:'json',
+				success:function(data)
+				{
+					$('tbody').html(data.table_data);
+					$('#total_records').text(data.total_data);
+				}
+			})
+		}
+
+		$(document).on('keyup', '#search', function(){
+			var query = $(this).val();
+			fetch_post_data(query);
+		});
+	});
+</script>
 @stop
