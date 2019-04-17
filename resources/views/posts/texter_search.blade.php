@@ -5,7 +5,7 @@
 <input type="text" name="search" id="search" class="form-control" placeholder="Search Post Data"/>
 
 <div class="table-responsive">
-	<h3 align="center">Wyniki wyszukiwania: <span id="total_records"></span></h3>
+	<h3 align="center">Wyniki wyszukiwania:  <span id="total_records"></span></h3>
 </div>
 
 <table class="table table-striped table-borderd">
@@ -18,12 +18,21 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr></tr>
+		@foreach($posts as $post)
+		<tr>
+			<td>{{ $post->title }}</td>
+			<td>{{ $post->description }}</td>
+			<td>{{ $post->author }}</td>
+		<tr>
+		@endforeach
 	</tbody>
 </table>
 
 
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+   
+
 <script>
 	$(document).ready(function(){
 

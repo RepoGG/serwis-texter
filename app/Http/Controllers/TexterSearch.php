@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Http\Requests\CreatePostRequest;
+use App\Post;
+use Illuminate\Support\Facades\Auth;
 
 class TexterSearch extends Controller
 {
     function search(){
-    	return view('posts.texter_search');
+    	$posts = Post::latest()->get();
+    	return view('posts.texter_search')->with('posts', $posts);
     }
 
     function action(Request $request)
@@ -26,7 +30,8 @@ class TexterSearch extends Controller
     		}
     		else
     		{
-    			$data = DB::table('posts')->orderBy('id', 'desc')->get();
+    			$data = DB::select('select * from posts')->get();
+    			//$data = DB::table('posts')->orderBy('id', 'desc')->get();
     		}
     		$total_row = $data->count();
     		if($total_row > 0)
