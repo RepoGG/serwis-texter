@@ -10,8 +10,8 @@
           <li class="nav-item active">
             <a class="nav-link" href="/home">Panel Użytkownika <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"></a>
+          <li class="nav-item active">
+            <a class="nav-link" href="/posts/search">Wyszukaj</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#"></a>
