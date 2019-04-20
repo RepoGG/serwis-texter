@@ -6,7 +6,6 @@ use Request;
 use App\Http\Requests\CreatePostRequest;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
 
 class PostsController extends Controller
 {
@@ -60,15 +59,6 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
         $post->update($request->all());
         return redirect('posts');
-    }
-
-    /**
-    *Wyszukiwanie rekordów
-    **/
-    public function search(){
-        $q = Input::get('q');
-        
-        return view('posts.posts_search');
     }
 
     
