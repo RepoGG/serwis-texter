@@ -15,14 +15,14 @@
       <div class="container">
         <!-- Example row of columns -->
       
-
+       
         <div class="row">
           <div class="col-md-10">
             <p>{{ $posts->title }}</p>
             <p>{{ $posts->description }}</p>
             <p>{{ $posts->author }}</p>
           </div>
-
+          
           @if (isset($users->name) === $posts->name)
           <p><a class="btn btn-secondary" href="/posts/{{ $posts->id }}/edit" role="button">Edytuj &raquo;</a></p>
           @endif
@@ -30,7 +30,7 @@
         </div>
 
         <hr>
-     
+        
       </div> <!-- /container -->
 
      
