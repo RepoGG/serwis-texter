@@ -60,6 +60,4 @@ class PostsController extends Controller
         $post->update($request->all());
         return redirect('posts');
     }
-
-    
 }

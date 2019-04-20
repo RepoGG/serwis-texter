@@ -28,4 +28,3 @@ Route::get('/{id}', 'PostsController@show');
 Route::get('/{id}/edit', 'PostsController@edit');
 **/
 Route::resource('/posts', 'PostsController');
-Route::get('/posts/search', 'TexterSearch@search');
