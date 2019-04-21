@@ -11,7 +11,7 @@
             <a class="nav-link" href="/home">Panel Użytkownika <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"></a>
+            <a class="nav-link" href="posts/search">Wyszukaj post</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#"></a>

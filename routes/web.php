@@ -14,6 +14,9 @@
 
 
 Route::get('/', 'PostsController@index');
+Route::get('/posts/search', 'PostsController@search');
+Route::post('/search', 'PostsController@searchaction');
+
 
 
 

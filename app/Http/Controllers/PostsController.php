@@ -6,6 +6,7 @@ use Request;
 use App\Http\Requests\CreatePostRequest;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;;
 
 class PostsController extends Controller
 {
@@ -60,4 +61,29 @@ class PostsController extends Controller
         $post->update($request->all());
         return redirect('posts');
     }
+
+    /**
+    * Szukanie postów
+    **/
+    public function search(){
+       $q = Input::get('q');
+        return view('posts.search');
+    }
+
+    public function searchaction(){
+        $q = Input::get('q');
+        if($q != ''){
+            $posts = Post::where('title', 'LIKE', '%' .$q . '%')
+                            ->orWhere('description', 'LIKE', '%' .$q . '%')
+                            ->orWhere('author', 'LIKE', '%' .$q . '%')
+                            ->get();
+                if(count($posts) > 0)
+                    return view('posts.search')->withDetails($posts)->withQuery($q);
+
+        } 
+    return view('posts.search')->withMessage('Nie znaleziono postów!');
+
+
 }
+}
+
