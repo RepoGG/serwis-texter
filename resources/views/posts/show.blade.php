@@ -21,13 +21,17 @@
             <p>{{ $posts->title }}</p>
             <p>{{ $posts->description }}</p>
             <p>{{ $posts->author }}</p>
-
+            <hr style="height: 10px; background: gray; border: 0px;">
             <h2>Komentarze: </h2>
           @foreach($comments as $comment)
             
             @if($comment->id_post === $posts->id)
-            <p>{{ $comment }}</p>
+            <p>Treść: {{ $comment->description }}</p>
+            <p>Autor: {{ $comment->author }}</p>
+            <p>Data: {{ $comment->created_at }}</p>
+            <hr>
             @endif
+
           @endforeach
 
           </div>

@@ -88,5 +88,17 @@ class PostsController extends Controller
 
 
 }
+
+
+    /**
+    * Tworzenie komentarzy
+    **/
+    public function create_comment($id){
+        $users = Auth::user();
+        $posts = Post::findOrFail($id);
+        return view('posts.create_comment', compact('posts', 'users'));
+    }
+
+
 }
 
