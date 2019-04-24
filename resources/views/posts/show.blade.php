@@ -4,7 +4,7 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron" style="background-color:yellow">
         <div class="container">
-          <h1 class="display-3">Hello, welcome on texter!</h1>
+          <h1 class="display-3">Hello, welcome on texter! </h1>
           <p>Serwis pozwalający na tworzenie postów</p>
           
         </div>
@@ -21,6 +21,15 @@
             <p>{{ $posts->title }}</p>
             <p>{{ $posts->description }}</p>
             <p>{{ $posts->author }}</p>
+
+            <h2>Komentarze: </h2>
+          @foreach($comments as $comment)
+            
+            @if($comment->id_post === $posts->id)
+            <p>{{ $comment }}</p>
+            @endif
+          @endforeach
+
           </div>
 
           @if (isset($users->name) === $posts->name)

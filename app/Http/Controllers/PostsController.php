@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Request;
 use App\Http\Requests\CreatePostRequest;
 use App\Post;
+use App\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;;
 
@@ -16,6 +17,7 @@ class PostsController extends Controller
     public function index(){
     	$posts = Post::latest()->get();
         $users = Auth::user();
+       
     	return view('posts.index', compact('posts', 'users'));
     }
 
@@ -25,7 +27,8 @@ class PostsController extends Controller
     public function show($id){
     	$posts = Post::find($id);
         $users = Auth::user();
-    	return view('posts.show', compact('posts', 'users'));
+         $comments = Comment::latest()->get();
+    	return view('posts.show', compact('posts', 'users', 'comments'));
     }
 
     /**
