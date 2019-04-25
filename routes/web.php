@@ -16,7 +16,7 @@
 Route::get('/', 'PostsController@index');
 Route::get('/posts/search', 'TexterSearch@search');
 Route::get('/posts/search/action', 'TexterSearch@action')->name('text_search.action');
-Route::get('/posts/{id}/create_comment', 'PostsController@create_comment');
+
 
 Auth::routes();
 
@@ -29,4 +29,3 @@ Route::get('/{id}', 'PostsController@show');
 Route::get('/{id}/edit', 'PostsController@edit');
 **/
 Route::resource('/posts', 'PostsController');
-
