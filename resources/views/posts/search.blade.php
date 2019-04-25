@@ -23,18 +23,23 @@
 					<th>title</th>
 					<th>description</th>
 					<th>author</th>
+					<th></th>
 				</tr>
 			</thead>
 
 			<tbody>
 				@foreach ($details as $post)
+				
 					<tr>
 						<td> {{ $post->title }} </td>
 						<td> {{ $post->description }}</td>
 						<td> {{ $post->author }}</td>
+						<td><a href="/posts/{{ $post->id }}"><button>Czytaj</button></td>
 					</tr>
+
 				@endforeach
 			</tbody>
+
 		</table>
 		@elseif(isset($message))
 		<p>{{ $message }}</p>
