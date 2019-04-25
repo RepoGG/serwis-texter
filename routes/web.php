@@ -14,8 +14,10 @@
 
 
 Route::get('/', 'PostsController@index');
-Route::get('/posts/search', 'TexterSearch@search');
-Route::get('/posts/search/action', 'TexterSearch@action')->name('text_search.action');
+Route::get('/posts/search', 'PostsController@search');
+Route::post('/search', 'PostsController@searchaction');
+
+
 
 
 Auth::routes();
