@@ -30,7 +30,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <button><a href="/posts/create">Dodaj Post</button>
-                <button><a href="/posts/home">Panel Użytkownika</button>
+                
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
