@@ -4,6 +4,8 @@
 <div class="card-body">
 
 
+
+
 				@if(count($errors) > 0)
 				<div class="alert alert-danger">
 					@foreach ($errors->all() as $error)
@@ -11,52 +13,39 @@
 					@endforeach
 				</div>
 				@endif
+
                
-                    {!! Form::model($post, ['method'=>'PATCH', 'class'=>'form-horizontal', 'action'=>['PostsController@update', $post->id]])!!}
+               
+                    {!! Form::open(['url'=>'/posts/{id}/comments', 'class'=>'form-horizontal'])!!}
                         @csrf
 
-                        <div class="form-group row">
-                            <div for="email" class="col-md-4 col-form-label text-md-right">
-                            	{!! Form::label('title', 'Tytuł:') !!}
-                            </div>
-                            <div class="col-md-6">
-                                {!! Form::text('title', null, ['class'=>'form-control']) !!}
-                            </div>
-                        </div>
+                        
 
                          <div class="form-group row">
                             <div for="email" class="col-md-4 col-form-label text-md-right">
-                            	{!! Form::label('description', 'Treść postu:') !!}
+                            	{!! Form::label('description', 'Treść komentarza:') !!}
                             </div>
                             <div class="col-md-6">
                                 {!! Form::textarea('description', null, ['class'=>'form-control']) !!}
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div for="email" class="col-md-4 col-form-label text-md-right">
-                                {!! Form::label('url', 'URL postu:') !!}
-                            </div>
-                            <div class="col-md-6">
-                                {!! Form::text('url', null, ['class'=>'form-control']) !!}
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div for="email" class="col-md-4 col-form-label text-md-right">
-                                {!! Form::label('category', 'Kategoria postu:') !!}
-                            </div>
-                            <div class="col-md-6">
-                                {!! Form::text('category', null, ['class'=>'form-control']) !!}
-                            </div>
-                        </div>
-
                           <div class="form-group row">
                             <div for="email" class="col-md-4 col-form-label text-md-right">
-                            	{!! Form::label('author', 'Autor postu:') !!}
+                            	{!! Form::label('name', 'Autor postu:') !!}
                             </div>
                             <div class="col-md-6">
-                                {!!Form::checkbox('author', $users->name)!!}
+                                {!!Form::checkbox('name', $users['name'])!!}
+                            </div>
+                        </div>
+
+                         <div class="form-group row">
+                            <div for="email" class="col-md-4 col-form-label text-md-right">
+                                {!! Form::label('id_post', ' post:') !!}
+                            </div>
+                            <div class="col-md-6">
+                                {!!Form::checkbox('id_post', $id)!!}
+
                             </div>
                         </div>
 
@@ -74,6 +63,8 @@
 
                         
                     {!! Form::close() !!}
+
+                    
                 </div>
 
 

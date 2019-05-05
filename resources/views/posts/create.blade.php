@@ -33,6 +33,24 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <div for="email" class="col-md-4 col-form-label text-md-right">
+                                {!! Form::label('url', 'Link: ') !!}
+                            </div>
+                            <div class="col-md-6">
+                                {!! Form::text('url', null, ['class'=>'form-control']) !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div for="email" class="col-md-4 col-form-label text-md-right">
+                                {!! Form::label('category', 'Kategoria:  ') !!}
+                            </div>
+                            <div class="col-md-6">
+                                {!! Form::select('category', array('1'=>'kategoria 1', '2'=>'kategoria 2', '3'=>'kategoria 3', '4'=>'kategoria 4'))!!}
+                            </div>
+                        </div>
+
                           <div class="form-group row">
                             <div for="email" class="col-md-4 col-form-label text-md-right">
                             	{!! Form::label('author', 'Autor postu:') !!}

@@ -17,8 +17,10 @@ Route::get('/', 'PostsController@index');
 Route::get('/posts/search', 'PostsController@search');
 Route::post('/search', 'PostsController@searchaction');
 
+Route::get('/posts/{id}/create_comment', 'CommentsController@create_comment');
 
 
+Route::auth();
 
 Auth::routes();
 
@@ -30,4 +32,6 @@ Route::get('/create', 'PostsController@create');
 Route::get('/{id}', 'PostsController@show');
 Route::get('/{id}/edit', 'PostsController@edit');
 **/
+Route::get('posts/{id}/destroy', 'PostsController@destroy');
 Route::resource('/posts', 'PostsController');
+Route::resource('/posts/{id}/comments', 'CommentsController');

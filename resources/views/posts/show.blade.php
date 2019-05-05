@@ -20,16 +20,33 @@
           <div class="col-md-10">
             <p>{{ $posts->title }}</p>
             <p>{{ $posts->description }}</p>
+            <p><a href="{{ $posts->url }}"> {{ $posts->url }}</a></p>
+            <p>Kategoria: {{ $posts->category }}</p>
             <p>{{ $posts->author }}</p>
           </div>
 
           @if (isset($users->name) === $posts->name)
           <p><a class="btn btn-secondary" href="/posts/{{ $posts->id }}/edit" role="button">Edytuj &raquo;</a></p>
+          <p><a class="btn btn-secondary" href="/posts/{{ $posts->id }}/destroy" role="button">Usuń &raquo;</a></p>
           @endif
+          <p><a class="btn btn-secondary" href="/posts/{{ $posts->id }}/comments/create" role="button">Dodaj komentarz &raquo;</a></p>
           
         </div>
 
         <hr>
+
+        @foreach($comments as $comment)
+        <div class="row">
+          <div class="col-md-10">
+            @if($posts->id === $comment->id_post)
+            
+            <p>{{ $comment->description }}</p>
+            <p>{{ $comment->created_at }}</p>
+            @endif
+          </div>
+        </div>
+
+        @endforeach
      
       </div> <!-- /container -->
 

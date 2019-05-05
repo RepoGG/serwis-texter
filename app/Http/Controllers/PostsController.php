@@ -5,15 +5,23 @@ namespace App\Http\Controllers;
 use Request;
 use App\Http\Requests\CreatePostRequest;
 use App\Post;
+use App\Comment;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;;
+use Illuminate\Support\Facades\Input;
+
 
 class PostsController extends Controller
 {
+    public function _construct(){
+        $this->middleware('auth');
+    }
+
+
 	/**
 	*Pobieramy listę postów
 	**/
     public function index(){
+
     	$posts = Post::latest()->get();
         $users = Auth::user();
     	return view('posts.index', compact('posts', 'users'));
@@ -25,7 +33,8 @@ class PostsController extends Controller
     public function show($id){
     	$posts = Post::find($id);
         $users = Auth::user();
-    	return view('posts.show', compact('posts', 'users'));
+        $comments = Comment::get()->all();
+    	return view('posts.show', compact('posts', 'users', 'comments'));
     }
 
     /**
@@ -41,6 +50,7 @@ class PostsController extends Controller
     **/
     public function store(CreatePostRequest $request){
         Post::create($request->all());
+        Auth::user();
         return redirect('/');
     }
 
@@ -60,6 +70,16 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
         $post->update($request->all());
         return redirect('posts');
+    }
+
+    /**
+    * usuwanie posta
+    **/
+    public function destroy($id){
+        //Post::delete($id);
+        //DB::table('posts')->where('id', '===', $id)->delete();
+        Post::destroy($id);
+        return redirect('/posts');
     }
 
     /**
@@ -84,6 +104,15 @@ class PostsController extends Controller
     return view('posts.search')->withMessage('Nie znaleziono postów!');
 
 
-}
+    }
+
+    /**
+    *Tworzenie komentarza
+    **/
+    public function create_comment($id){
+        $users = Auth::user();
+        $posts = Post::findOrFail($id);
+        return view('posts.create_comment', compact('users', 'posts'));
+    }
 }
 

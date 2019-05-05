@@ -5,7 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboar </div>
+                @if($users === 'admin')
+                <div class="card-header-admin">Panel Administratora </div>
+                @else
+                <div class="card-header">Panel Użytkownika </div>
+                @endif
 
                 <div class="card-body">
                     @if (session('status'))
@@ -26,13 +30,28 @@
                 
                 <h2>{{ $post->title }}</h2>
                 <p>{{ $post->description }}</p>
-                <p>Autor: {{ $users }}</p>
-                <p><a class="btn btn-secondary" href="/posts/{{ $post->id }}/edit" role="button">Edytuj &raquo;</a></p>
-                
+                <p>Autor: {{ $post->author }}</p>
+                <p><a class="btn btn-secondary" href="/posts/{{ $post->id }}/edit" role="button">Edytuj &raquo;</a>
+                <a class="btn btn-secondary" href="/posts/{{ $post->id }}/destroy" role="button">Usuń &raquo;</a></p>
               </div>
 
               
             </div>
+            @elseif($users === 'admin')
+
+                <div class="row">
+              <div class="col-md-10">
+                
+                <h2>{{ $post->title }}</h2>
+                <p>{{ $post->description }}</p>
+                <p>Autor: {{ $post->author }}</p>
+                
+                <a class="btn btn-secondary" href="/posts/{{ $post->id }}/destroy" role="button">Usuń &raquo;</a></p>
+              </div>
+
+              
+            </div>
+
 
             <hr>
         @endif

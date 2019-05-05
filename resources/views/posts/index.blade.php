@@ -19,6 +19,8 @@
           <div class="col-md-10">
             <h2>{{ $post->title }}</h2>
             <p>{{ $post->description }}</p>
+            <p><a href="{{ $post->url }}"> {{ $post->url }}</a></p>
+            <p>Kategoria: {{ $post->category }}</p>
             <p>Autor: {{ $post->author }} </p>
             <p>Data utworzenia: {{ $post->created_at }}
             <p><a class="btn btn-secondary" href="/posts/{{ $post->id }}" role="button">Czytaj &raquo;</a></p>
