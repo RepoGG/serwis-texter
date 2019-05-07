@@ -26,6 +26,7 @@ class CreatePostRequest extends FormRequest
         return [
             'title'=>'required',
             'description'=>'required',
+            'author'=>'required',
             'url' => 'url|nullable',
             'category' => 'required'
             

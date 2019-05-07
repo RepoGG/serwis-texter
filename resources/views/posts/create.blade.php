@@ -53,10 +53,11 @@
 
                           <div class="form-group row">
                             <div for="email" class="col-md-4 col-form-label text-md-right">
-                            	{!! Form::label('author', 'Autor postu:') !!}
+                            	{!! Form::label('author', 'Autor postu:') !!} {!!$users->name!!}
+
                             </div>
                             <div class="col-md-6">
-                                {!!Form::checkbox('author', $users->name)!!}
+                                {!!Form::checkbox('author', $users->name, true)!!}
                             </div>
                         </div>
 

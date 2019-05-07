@@ -10,6 +10,7 @@
                 @else
                 <div class="card-header">Panel Użytkownika </div>
                 @endif
+                <a class="btn btn-secondary" href="/posts/create" role="button">Dodaj post &raquo;</a>
 
                 <div class="card-body">
                     @if (session('status'))
