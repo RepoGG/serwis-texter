@@ -34,6 +34,7 @@
         </div>
 
         <hr>
+        <p><h4><b>Komentarze: </b></h4></p>
 
         @foreach($comments as $comment)
         <div class="row">

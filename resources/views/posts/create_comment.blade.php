@@ -32,7 +32,7 @@
 
                           <div class="form-group row">
                             <div for="email" class="col-md-4 col-form-label text-md-right">
-                            	{!! Form::label('name', 'Autor postu:') !!}
+                            	{!! Form::label('name', 'Autor postu (name):') !!}
                             </div>
                             <div class="col-md-6">
                                 {!!Form::checkbox('name', $users['name'])!!}

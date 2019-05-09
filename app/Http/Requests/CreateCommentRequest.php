@@ -25,7 +25,8 @@ class CreateCommentRequest extends FormRequest
     {
         return [
             'id_post'=>'required',
-            'description'=>'required'
+            'description'=>'required',
+            'name'=>'required'
         ];
     }
 }
